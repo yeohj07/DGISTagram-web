@@ -4,4 +4,4 @@
 - [x] Authentication
 - [x] Architecture
 - [x] Styles (ex : dark mode)
-- [ ] Log in
+- [ ] Log in / Sign up
