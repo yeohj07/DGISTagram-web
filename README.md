@@ -1,6 +1,7 @@
 # app-practice web
 
-- [ ] Router
-- [ ] Authentication
-- [ ] Architecture (components postition)
+- [x] Router
+- [x] Authentication
+- [x] Architecture
 - [ ] Styles (ex : dark mode)
+- [ ] Log in
