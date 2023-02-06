@@ -6,7 +6,7 @@ import NotFound from "./screens/NotFound";
 import { darkModeVar, isLoggedInVar } from "./apollo";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, GlobalStyles, lightTheme } from "./styles";
-import SignUp from "./screens/signUp";
+import SignUp from "./screens/SignUp";
 import routes from "./routes";
 
 function App() {

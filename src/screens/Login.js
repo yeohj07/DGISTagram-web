@@ -39,7 +39,7 @@ function Login() {
         </FacebookLogin>
       </FormBox>
       <BottomBox
-        cta="Don't have an account? sign up"
+        cta="Don't have an account?"
         linkText="Sign up"
         link={routes.signUp}
       />
