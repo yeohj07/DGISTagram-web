@@ -2,7 +2,11 @@ import { PropTypes } from "prop-types";
 import { Helmet } from "react-helmet-async";
 
 function PageTitle({ title }) {
-  return <Helmet>{title} | DGISTagram</Helmet>;
+  return (
+    <Helmet>
+      <title>{title} | DGISTagram</title>
+    </Helmet>
+  );
 }
 
 PageTitle.propTypes = {
