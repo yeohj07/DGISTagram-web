@@ -3,14 +3,16 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import AuthLayout from "../components/auth/AuthLayout";
 import BottomBox from "../components/auth/BottomBox";
 import Button from "../components/auth/Button";
 import FormBox from "../components/auth/FormBox";
+import FormError from "../components/auth/FormError";
 import Input from "../components/auth/Input";
 import Separator from "../components/auth/Separator";
+import PageTitle from "../components/PageTitle";
 import routes from "../routes";
 
 const FacebookLogin = styled.div`
@@ -22,41 +24,41 @@ const FacebookLogin = styled.div`
 `;
 
 function Login() {
-  const [username, setUsername] = useState("");
-  const [usernameError, setUsernameError] = useState("");
-  const onUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (username === "") {
-      setUsernameError("form is empty");
-    }
-    if (username.length < 10) {
-      setUsernameError("too short");
-    }
-    console.log(username);
+  const { register, handleSubmit, errors, formState } = useForm({
+    mode: "onChange",
+  });
+  const onSubmitValid = (data) => {
+    // console.log(data);
   };
   return (
     <AuthLayout>
+      <PageTitle title="Login" />
       <FormBox>
         <div>
           <FontAwesomeIcon icon={faInstagram} size="3x" />
         </div>
-        <form onSubmit={handleSubmit}>
-          {usernameError}
+        <form onSubmit={handleSubmit(onSubmitValid)}>
           <Input
-            onChange={onUsernameChange}
-            value={username}
+            ref={register({
+              required: "Username is required",
+            })}
+            name="username"
             type="text"
-            placeholder="Username"
+            placeholder="username"
+            hasError={Boolean(errors?.username?.message)}
           />
-          <Input type="password" placeholder="Password" />
-          <Button
-            type="submit"
-            value="Log in"
-            disabled={username === "" && username.length < 10}
+          <FormError message={errors?.username?.message} />
+          <Input
+            ref={register({
+              required: "Password is required",
+            })}
+            name="password"
+            type="password"
+            placeholder="Password"
+            hasError={Boolean(errors?.password?.message)}
           />
+          <FormError message={errors?.password?.message} />
+          <Button type="submit" value="Log in" disabled={!formState.isValid} />
         </form>
         <Separator />
         <FacebookLogin>
