@@ -11,6 +11,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Avatar from "../Avatar";
 import { FatText } from "../shared";
+import Comments from "./Comments";
 
 const TOGGLE_LIKE_MUTATION = gql`
   mutation toggleLike($id: Int!) {
@@ -70,24 +71,6 @@ const PhotoAction = styled.div`
 const Likes = styled(FatText)`
   margin-top: 10px;
   display: block;
-`;
-
-const Comments = styled.div`
-  margin-top: 20px;
-`;
-
-const Comment = styled.div``;
-
-const CommentCaption = styled.span`
-  margin-left: 10px;
-`;
-
-const CommentCount = styled.span`
-  opacity: 0.7;
-  margin: 10px 0px;
-  display: block;
-  font-weight: 600;
-  font-size: 10px;
 `;
 
 function Photo({
@@ -165,7 +148,12 @@ function Photo({
           </div>
         </PhotoActions>
         <Likes>{likes === 1 ? "1 like" : `${likes} likes`}</Likes>
-        <Comments></Comments>
+        <Comments
+          author={user.username}
+          caption={caption}
+          commentNumber={commentNumber}
+          comments={comments}
+        />
       </PhotoData>
     </PhotoContainer>
   );
@@ -182,18 +170,6 @@ Photo.propTypes = {
   isLiked: PropTypes.bool.isRequired,
   likes: PropTypes.number.isRequired,
   commentNumber: PropTypes.number.isRequired,
-  comments: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      user: PropTypes.shape({
-        avatar: PropTypes.string,
-        username: PropTypes.string.isRequired,
-      }),
-      payload: PropTypes.string.isRequired,
-      isMine: PropTypes.bool.isRequired,
-      createdAt: PropTypes.string.isRequired,
-    })
-  ),
 };
 
 export default Photo;
