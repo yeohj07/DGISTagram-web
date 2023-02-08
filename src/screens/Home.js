@@ -1,14 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
-import {
-  faBookmark,
-  faComment,
-  faHeart,
-  faPaperPlane,
-} from "@fortawesome/free-regular-svg-icons";
-import { faHeart as SolidHeart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import Avatar from "../components/Avatar";
+import Photo from "../components/feed/Photo";
+import PageTitle from "../components/PageTitle";
 import { FatText } from "../components/shared";
 
 const FEED_QUERY = gql`
@@ -84,38 +78,9 @@ function Home() {
   const { data } = useQuery(FEED_QUERY);
   return (
     <div>
+      <PageTitle title="Home" />
       {data?.seeFeed?.map((photo) => (
-        <PhotoContainer key={photo.id}>
-          <PhotoHeader>
-            <Avatar lg url={photo.user.avatar} />
-            <Username>{photo.user.username}</Username>
-          </PhotoHeader>
-          <PhotoFile src={photo.file} />
-          <PhotoData>
-            <PhotoActions>
-              <div>
-                <PhotoAction>
-                  <FontAwesomeIcon
-                    style={{ color: photo.isLiked ? "tomato" : "inherit" }}
-                    icon={photo.isLiked ? SolidHeart : faHeart}
-                  />
-                </PhotoAction>
-                <PhotoAction>
-                  <FontAwesomeIcon icon={faComment} />
-                </PhotoAction>
-                <PhotoAction>
-                  <FontAwesomeIcon icon={faPaperPlane} />
-                </PhotoAction>
-              </div>
-              <div>
-                <FontAwesomeIcon icon={faBookmark} />
-              </div>
-            </PhotoActions>
-            <Likes>
-              {photo.likes === 1 ? "1 like" : `${photo.likes} likes`}
-            </Likes>
-          </PhotoData>
-        </PhotoContainer>
+        <Photo key={photo.id} {...photo} />
       ))}
     </div>
   );
