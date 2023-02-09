@@ -38,7 +38,7 @@ export const disableDarkMode = () => {
 const httpLink = createHttpLink({
   uri:
     process.env.NODE_ENV === "production"
-      ? ""
+      ? "https://dgistagram.herokuapp.com/graphql"
       : "http://localhost:4000/graphql",
 });
 
