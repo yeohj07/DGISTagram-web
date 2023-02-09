@@ -32,7 +32,7 @@ function Comments({ author, caption, commentNumber, comments }) {
   );
 }
 
-Comment.propTypes = {
+Comments.propTypes = {
   author: PropTypes.string.isRequired,
   caption: PropTypes.string,
   commentNumber: PropTypes.number.isRequired,
