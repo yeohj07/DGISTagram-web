@@ -73,7 +73,7 @@ function Comment({ id, photoId, isMine, author, payload }) {
           )
         )}
       </CommentCaption>
-      {isMine ? <button onClick={onDeleteClick}>❌</button> : null}
+      {isMine ? <button onClick={onDeleteClick}>×</button> : null}
     </CommentContainer>
   );
 }
