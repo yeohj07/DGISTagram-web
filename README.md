@@ -1,5 +1,27 @@
 # app-practice web
 
+## Testing Images
+
+### User Profile
+<img src="README-img/1.png" width=700px></img></br>
+
+</br>
+
+### Feed
+<img src="README-img/2.png" width=700px></img></br>
+
+</br>
+
+### Login / Register
+<img src="README-img/3.png" width=700px></img></br>
+
+</br>
+
+### Frontend Deployment (실제 웹사이트 배포)
+<img src="README-img/4.png" width=700px></img></br>
+
+</br>
+
 ## ReactJS web
 
 - [x] Log In / Sign Up
@@ -8,10 +30,8 @@
 - [x] Comment Upload
 - [x] Comment Delete
 - [x] Profile
-
-## Images
-
-<img src="README-img/1.png" width=700px></img></br>
+- [ ] Upload Image
+- [ ] Direct Message
 
 </br>
 </br>
