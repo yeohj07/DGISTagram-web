@@ -1,4 +1,4 @@
-# app-practice web
+# DGISTagram Web
 
 </br>
 <img src="README-img/web-example.gif" width=700px></img></br>
