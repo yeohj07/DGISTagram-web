@@ -1,5 +1,9 @@
 # app-practice web
 
+</br>
+<img src="README-img/web-example.gif" width=700px></img></br>
+</br>
+
 ## Testing Images
 
 ### User Profile
